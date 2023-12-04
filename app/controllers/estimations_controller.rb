@@ -1,6 +1,6 @@
 class EstimationsController < ApplicationController
   def create
-    current_member.update(estimation: params[:estimation])
+    current_member.update!(estimation: params[:estimation])
 
     Turbo::StreamsChannel.broadcast_replace_to(
       current_member.room,

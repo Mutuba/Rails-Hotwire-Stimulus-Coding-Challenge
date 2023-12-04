@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_02_145706) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_04_083538) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,6 +27,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_02_145706) do
     t.string "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name", default: "Room", null: false
+    t.index ["name"], name: "index_rooms_on_name"
   end
 
   add_foreign_key "members", "rooms"

@@ -1,8 +1,10 @@
 class ApplicationController < ActionController::Base
-  include ActionView::RecordIdentifier
+  # include ActionView::RecordIdentifier
 
   def current_member
     return if session[:member_id].blank?
+    return if Member.find_by_id(session[:member_id]).blank?
+    
 
     @current_member ||= Member.find(session[:member_id])
   end

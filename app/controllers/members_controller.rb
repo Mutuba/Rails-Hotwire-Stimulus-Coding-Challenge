@@ -7,9 +7,8 @@ class MembersController < ApplicationController
 
 
   def create
-    # binding.pry
     @member = Member.create!(member_params)
-    session[:member_id] = @member.id
+    session[:member_id] = @member.id    
 
     Turbo::StreamsChannel.broadcast_append_to(
       @room,

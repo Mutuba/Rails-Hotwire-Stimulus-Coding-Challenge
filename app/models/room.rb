@@ -1,5 +1,6 @@
 class Room < ApplicationRecord
   before_create :set_token
+  validates :name, presence: true, uniqueness: true
 
   has_many :members
 
